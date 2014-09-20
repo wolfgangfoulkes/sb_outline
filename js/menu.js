@@ -8,6 +8,7 @@ jQuery(document).ready(function($) {
     };
     var init = $.now();
     var ti = 0;
+    var intervalSize = 800;
 
     var callbacks =
     {
@@ -66,21 +67,36 @@ jQuery(document).ready(function($) {
     
     //this function, and accoutrements should be made a template, and used for stuff.
     var perlinLines = function(ms) {
+        var len = (".lines .line").length;
         $(".lines .line").each(function(i) {
-            var msi = ms + 1/i;
-            pn = (perlin2(msi, msi) + 1) / 2;
-            $(this).css("height", pn + "%");
+            var pos = ((1/len) * (i+1));
+            var msi = pos + ms;
+            pn = (noise.perlin2(msi, msi-Math.random()*.3) + 1) / 2;
+            $(this).stop(true, false).animate(
+                {
+                    "margin-left": [pn*100 + "%", "linear"]
+                },
+                intervalSize,
+                function() {
+                    }
+            );
+            
+            //$(this).css("margin-left", pn*100 + "%");
+            //$(this).css("margin-top", pn*100 + "%"); because of margin calculated by width
+            
         });
     }
     
-    var timeInterval = function {
+    var timeInterval = function(){
         ti++;
-        perlinLines(ti);
+        var now = $.now() - init;
+        perlinLines(now);
     }
     
     /*****RUNTIME*****/
     
-    var timer = setInterval(timeInterval, 100);
+    noise.seed(Math.random());
+    var timer = setInterval(timeInterval, intervalSize);
     
     $(document).mousemove(event, function(){
         var $item = $(".menu-item:hover").first();

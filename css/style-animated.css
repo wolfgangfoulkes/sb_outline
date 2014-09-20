@@ -33,19 +33,29 @@
 .lines {
     display: inline-block;
     position: absolute;
-    bottom: 0;
-    height: 10%;
-    width: 20%;
-    left: 10%;
     overflow: hidden;
+    right: 0;
+    bottom: 100px;
+    width: 50%;
 }
 
 .line {
     display: inline-block;
-    border-left: 1px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 1%;
+    border-top: 1px;
     border-style: dotted;
-    height: 100%;
-    margin-left: 1%; //should prolly be 1px;
+    float: left;
+    /*
+    border-left: 1px;
+    margin-left: .5%; //should prolly be 1px;
+    float:left;
+    */
+}
+.lines:after {
+    display: hidden;
+    clear: both;
 }
 
 .content-footer {
