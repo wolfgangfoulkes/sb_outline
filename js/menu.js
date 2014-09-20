@@ -6,8 +6,8 @@ jQuery(document).ready(function($) {
         x: $(window).width(),
         y: $(window).height()
     };
-    var ti; //timeInterval
     var init = $.now();
+    var ti = 0;
 
     var callbacks =
     {
@@ -66,10 +66,21 @@ jQuery(document).ready(function($) {
     
     //this function, and accoutrements should be made a template, and used for stuff.
     var perlinLines = function(ms) {
-        
+        $(".lines .line").each(function(i) {
+            var msi = ms + 1/i;
+            pn = (perlin2(msi, msi) + 1) / 2;
+            $(this).css("height", pn + "%");
+        });
+    }
+    
+    var timeInterval = function {
+        ti++;
+        perlinLines(ti);
     }
     
     /*****RUNTIME*****/
+    
+    var timer = setInterval(timeInterval, 100);
     
     $(document).mousemove(event, function(){
         var $item = $(".menu-item:hover").first();
