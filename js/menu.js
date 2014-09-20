@@ -66,12 +66,12 @@ jQuery(document).ready(function($) {
     };
     
     //this function, and accoutrements should be made a template, and used for stuff.
-    var perlinLines = function(ms) {
+    var simplexLines = function(ms) {
         var len = (".lines .line").length;
         $(".lines .line").each(function(i) {
             var pos = ((1/len) * (i+1));
             var msi = pos + ms;
-            pn = (noise.perlin2(msi, msi-Math.random()*.3) + 1) / 2;
+            pn = (noise.simplex2(msi, msi-Math.random()*.3) + 1) / 2;
             $(this).stop(true, false).animate(
                 {
                     "margin-left": [pn*100 + "%", "linear"]
@@ -90,7 +90,7 @@ jQuery(document).ready(function($) {
     var timeInterval = function(){
         ti++;
         var now = $.now() - init;
-        perlinLines(now);
+        simplexLines(now);
     }
     
     /*****RUNTIME*****/
