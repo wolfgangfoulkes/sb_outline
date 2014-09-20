@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
                 {
                     "width": [0, "easeOutCubic"]
                 },
-                (cur / w.x) * 20000,
+                (cur / w.x) * 15000,
                 function() {
                         console.log("out");
                     }
