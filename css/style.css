@@ -1,0 +1,106 @@
+.page-content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* .menu-item:nth-child(0n+1) .menu-item-content:before tbused with an inserted <style> */
+
+.menu {
+}
+
+.menu-item {
+    height: 16px;
+}
+
+.menu-item-content {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.submenu {
+    visibility: hidden;
+    position: absolute;
+    left: 50%;
+    width: 100px;
+    border-left: 1px;
+    border-style: dotted;
+    transition-property: display;
+    transition-duration: 2s;
+}
+
+.menu-item-content:hover .submenu {
+    visibility: visible;
+}
+
+.submenu-item {
+    margin-left: 4px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.menu-item-lead {
+    display: inline-block;
+    border-bottom: 1px;
+    border-style: dotted;
+}
+
+.menu-item:nth-child(0n+1) .menu-item-lead {
+    height: auto;
+    width: 5%
+}
+
+.menu-item:nth-child(0n+2) .menu-item-lead {
+    height: auto;
+    width: 70%;
+}
+
+.menu-item:nth-child(0n+3) .menu-item-lead {
+    height: auto;
+    width: 55%;
+}
+
+.menu-item:nth-child(0n+4) .menu-item-lead {
+    height: auto;
+    width: 30%;
+}
+
+.menu-item:nth-child(0n+5) .menu-item-lead {
+    height: auto;
+    width: 10%;
+}
+
+.menu-item:nth-child(0n+6) .menu-item-lead {
+    height: auto;
+    width: 2%
+}
+
+.menu-item:nth-child(0n+3) :hover .submenu{
+
+}
+
+.content-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.logo {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 80px;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+
+}
+
+.logo-content {
+    font-size: 24px;
+    word-wrap: break-word;
+}
+
+
