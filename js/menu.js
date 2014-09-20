@@ -6,6 +6,8 @@ jQuery(document).ready(function($) {
         x: $(window).width(),
         y: $(window).height()
     };
+    var ti; //timeInterval
+    var init = $.now();
 
     var callbacks =
     {
@@ -61,6 +63,11 @@ jQuery(document).ready(function($) {
             //$item.find(".menu-item-lead").css({"width": 0});
         }
     };
+    
+    //this function, and accoutrements should be made a template, and used for stuff.
+    var perlinLines = function(ms) {
+        
+    }
     
     /*****RUNTIME*****/
     
