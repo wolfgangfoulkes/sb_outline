@@ -74,7 +74,7 @@ jQuery(document).ready(function($) {
             pn = (noise.simplex2(msi, msi-Math.random()*.2) + 1) / 2;
             $(this).stop(true, false).animate(
                 {
-                    "margin-left": [pn*100 + "%", "linear"]
+                    "margin-left": [pn*100 + "%", "easeInCubic"]
                 },
                 intervalSize,
                 function() {
