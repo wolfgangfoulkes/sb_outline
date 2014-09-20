@@ -69,9 +69,9 @@ jQuery(document).ready(function($) {
     var simplexLines = function(ms) {
         var len = (".lines .line").length;
         $(".lines .line").each(function(i) {
-            var pos = ((1/len) * (i+1));
+            var pos = (1/len) * (i+1);
             var msi = pos + ms;
-            pn = (noise.simplex2(msi, msi-Math.random()*.3) + 1) / 2;
+            pn = (noise.simplex2(msi, msi-Math.random()*.2) + 1) / 2;
             $(this).stop(true, false).animate(
                 {
                     "margin-left": [pn*100 + "%", "linear"]
