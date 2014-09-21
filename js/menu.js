@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
             //var pos = (1/len) * (i+1);
             var pos = (1/24) * (i+1); //wasn't counting right
             var msi = pos + ms;
-            var sinedist = 1-Math.sin(pos * Math.PI)*.8; //should be .5=1 //1- because these are MARGINS
+            var sinedist = 1-Math.sin(pos * Math.PI)*1; //should be .5=1 //1- because these are MARGINS
             console.log(len, pos, sinedist);
             pn = (noise.simplex2(msi, msi-Math.random()*.2) + 1) / 2;
             $(this).stop(true, false).animate(
