@@ -47,13 +47,6 @@ a { /*add this to reset, eventually*/
 
 /*****/
 
-
-.first-page {
-    box-sizing: border-box;
-    height: 100vh;
-    width: 100vw;
-}
-
 .last-page {
     box-sizing: border-box;
     height: 100vh;
@@ -71,13 +64,18 @@ a { /*add this to reset, eventually*/
 /***** POST *****/
 .content-item {
     position: relative;
-    min-height: 100vh;
     box-sizing: border-box;
-    border-right-width: 4px;
-    border-right-style: solid;
+    padding-top: 100vh;
     /*border-right-color: rgba(200, 0, 0, .1);*/
-
 }
+
+.content-item-frame {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
 
 /* appear onscreen first, and stay fixed while other content scrolls, perhaps turn translucent when stuff passes over*/
 .content-title {
@@ -89,6 +87,15 @@ a { /*add this to reset, eventually*/
     color: rgba(90, 0, 0, .1);
     z-index: -1;
     overflow-x: hidden;
+}
+
+
+
+/*all might be better accomplished with an after tag, or an empty padding item in the content-item*/
+.content-item-contents {
+    box-sizing: border-box;
+    position: relative;
+    min-height: 100vh;
 }
 
 .content-body {
