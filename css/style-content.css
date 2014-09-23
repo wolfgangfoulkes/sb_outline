@@ -62,36 +62,52 @@ a { /*add this to reset, eventually*/
 }
 
 /***** POST *****/
+.content:before {
+display: block;
+content: "";
+width: 100vw;
+height: 100vh;
+
+}
+
+
 .content-item {
     position: relative;
+    margin-top: 64px;
     box-sizing: border-box;
-    padding-top: 100vh;
     /*border-right-color: rgba(200, 0, 0, .1);*/
 }
 
 .content-item-frame {
+    display: inline-block;
+}
+
+
+.abs-top { /*reuse for any fullpage stuff that requires this*/
     position: absolute;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
+    top: -64px;
+}
+
+.abs-bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
 }
 
 
 /* appear onscreen first, and stay fixed while other content scrolls, perhaps turn translucent when stuff passes over*/
 .content-title {
-    position: absolute;
     display: inline-block;
-    left: 0; /*maybe put this left, to account for space under menu or to the right if there is nothing there, and content is spare anyway*/
-    bottom: 0;
     font-size: 64px;
     color: rgba(90, 0, 0, .1);
     z-index: -1;
     overflow-x: hidden;
 }
 
-
-
-/*all might be better accomplished with an after tag, or an empty padding item in the content-item*/
 .content-item-contents {
     box-sizing: border-box;
     position: relative;
