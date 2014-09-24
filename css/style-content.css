@@ -80,27 +80,24 @@ height: 100vh;
 
 /* appear onscreen first, and stay fixed while other content scrolls, perhaps turn translucent when stuff passes over*/
 .content-title {
+    position: absolute;
     display: inline-block;
     font-size: 64px;
     color: rgba(90, 0, 0, .1);
     z-index: -1;
 }
 
-.content-title {
+.scroll-inner.below-scroll {
     position: absolute;
+    top: 0;
 }
 
-.content-item.off .content-title {
-    position: absolute;
-    top: -64px;
-}
-
-.content-item.m_top .content-title, .content-item.fullscreen .content-title  {
+.scroll-inner.scroll  {
     position: fixed;
     bottom: 0;
 }
 
-.content-item.m_bottom .content-title {
+.scroll-inner.above-scroll {
     position: absolute;
     bottom: 0;
 }
@@ -118,31 +115,15 @@ height: 100vh;
 }
 
 .content-media {
+    position: absolute;
     display: inline-block;
     width: 100vw;
     height: calc(100vh - 130px);
     z-index: 3;
-    left: 0;
+    padding-top: 130px;
+    bottom: calc(100vh - 130px);
+
 }
-
-.content-item.off .content-media, .content-item.m_top .content-media {
-    position: absolute;
-    top: 130px;
-}
-
-.content-item.fullscreen .content-media {
-    position: fixed;
-    top: 130px;
-}
-
-.content-item.m_bottom .content-media {
-    position: absolute;
-    bottom: 0;
-}
-
-
-
-
 
 .media-item {
 }
