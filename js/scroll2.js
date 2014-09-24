@@ -27,23 +27,21 @@ jQuery(document).ready(function($) {
                 var top = $(element).offset().top;
                 var height = $(element).outerHeight(false);
                 var bottom = top + height;
-                var $frame = $(element).find(".content-item-frame");
-                var step = 0;
-                if ((scr_b >= top) && (scr_t < bottom))
+                var state = "off"; //same as defining an else
+                if ((scr_b >= top) && (scr_t < bottom)) //thing is onscreen
                 {
-                    if (scr_b < bottom)
-                    {
-                        step = 1;
-                    }
-                    else
-                    {
-                        step = 2;
-                    }
+                    if (scr_t >= top)
+                        {
+                            if (scr_b >= bottom) {state = "m_bottom";} //margin for margin-is
+                            else {state = "fullscreen";}
+                        }
+                    else {state = "m_top";}
                 }
-                $frame.toggleClass("abs-top", (step == 0));
-                $frame.toggleClass("fixed", (step == 1));
-                $frame.toggleClass("abs-bottom", (step == 2));
-                console.log("index", index, "scr_t", scr_t, "scr_b", scr_b, "top", top, "bottom", bottom, "step", step);
+                $(element).toggleClass("off", (state == "off") );
+                $(element).toggleClass("m_top", (state == "m_top") );
+                $(element).toggleClass("fullscreen", (state == "fullscreen") );
+                $(element).toggleClass("m_bottom", (state == "m_bottom") );
+                console.log("index", index, "scr_t", scr_t, "scr_b", scr_b, "state", state);
                 });
             }
         };
