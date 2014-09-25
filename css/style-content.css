@@ -85,21 +85,10 @@ height: 100vh;
     font-size: 64px;
     color: rgba(90, 0, 0, .1);
     z-index: -1;
-}
+    left: 0;
+    height: 64px;
+    margin-top: -64px;
 
-.scroll-inner.below-scroll {
-    position: absolute;
-    top: 0;
-}
-
-.scroll-inner.scroll  {
-    position: fixed;
-    bottom: 0;
-}
-
-.scroll-inner.above-scroll {
-    position: absolute;
-    bottom: 0;
 }
 
 .content-item-contents {
@@ -133,8 +122,44 @@ height: 100vh;
     height: 100px;
     margin-top: 10px;
     background-color: grey;
-
 }
+
+/***** SCROLL EFFECT *****/
+
+.scroll-inner.below-scroll {
+    position: absolute;
+    top: 0;
+}
+
+.scroll-inner.scroll  {
+    position: fixed;
+    bottom: 0;
+}
+
+
+.scroll-inner.above-scroll {
+    position: absolute;
+    bottom: 0;
+}
+
+.content-title-column.scroll-outer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+}
+
+.content-media-column.scroll-outer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+}
+
+#six-sigma .media-image {
+    background-color: red;
+}
+
 
 /*****/
 

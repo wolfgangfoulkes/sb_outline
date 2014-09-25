@@ -12,6 +12,7 @@ jQuery(document).ready(function($) {
     var callbacks =
     {
         windowSize: function() {
+            //believe width is the same as outerWidth for the window.
             w.x = $(window).width();
             w.y = $(window).height();
             
@@ -20,10 +21,10 @@ jQuery(document).ready(function($) {
         },
         
         scrollFix: function() {
-            scr_t = $(this).scrollTop();
-            scr_b = scr_t + w.y;
-            $(".scroll-outer").each(function(index, element){
-                var $outer = $(element);
+            var scr_t = $(window).scrollTop(); //probably just "window" calls this
+            var scr_b = scr_t + w.y;
+            $(".scroll-outer").each(function(index_o, element_o){
+                var $outer = $(element_o);
                 
                 //get height of outer element just once
                 var top_o = $outer.offset().top;
@@ -31,13 +32,11 @@ jQuery(document).ready(function($) {
                 var bottom_o = top_o + height_o;
                 
                 //iterate over all .scroll objects
-                $(".scroll-inner").each(function(index, element) {
-                    var $inner = $(element);
+                $outer.find(".scroll-inner").each(function(index_i, element_i) {
+                    var $inner = $(element_i);
 
-                    var top_i = $inner.offset().top;
                     var height_i = $inner.outerHeight(true);
-                    //if "true" it keeps reading that "top" position. a more semantic solution would be "transform"
-                    var bottom_i = top_o + height_i;
+                    var bottom_i = top_o + height_i; //top is dynamic
                     
                     var state = "below-scroll"; //same as defining an else
                     if ((scr_b >= top_o) && (scr_t < bottom_o)) //thing is onscreen
@@ -45,13 +44,13 @@ jQuery(document).ready(function($) {
                         if (scr_b >= bottom_i)
                         {
                             if (scr_b >= bottom_o) {state = "above-scroll";}
-                            else {state = "scroll"}
+                            else {state = "scroll";}
                         }
                     }
                     $inner.toggleClass("below-scroll", (state == "below-scroll") );
                     $inner.toggleClass("scroll", (state == "scroll") );
                     $inner.toggleClass("above-scroll", (state == "above-scroll") );
-                    console.log("index", index, "bottom_o", bottom_o, "top_o:", top_o, "bottom_i", bottom_i, "top_i:", top_i, "scr_t", scr_t, "scr_b", scr_b, "state", state);
+                    console.log("index_o", index_o, "index_i", index_i, "bottom_o", bottom_o, "top_o:", top_o, "bottom_i", bottom_i, "scr_t", scr_t, "scr_b", scr_b, "state", state, $outer.attr("title"), $inner.attr("title"));
                 });
             });
         }
