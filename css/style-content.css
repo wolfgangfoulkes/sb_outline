@@ -75,6 +75,7 @@ height: 100vh;
     box-sizing: border-box;
     /*border-right-color: rgba(200, 0, 0, .1);*/
     margin-top: 64px;
+    left: 0;
 }
 
 
@@ -144,16 +145,16 @@ height: 100vh;
 
 .content-title-column.scroll-outer {
     position: absolute;
-    top: 0;
+    top: -64px;
     bottom: 0;
-    width: 50%;
+    width: 100%;
 }
 
 .content-media-column.scroll-outer {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 50%;
+    width: 30%;
 }
 
 #six-sigma .media-image {
